@@ -8,7 +8,7 @@ var Nav = React.createClass({
 		var location = this.refs.search.value;
 		var encodedLocation = encodeURIComponent(location);
 
-		if (location.length > 0) {
+		if (location && location.length > 0) {
 			this.refs.search.value = '';
 			window.location.hash = '#/?location=' + encodedLocation;
 		}
@@ -27,7 +27,7 @@ var Nav = React.createClass({
 				<div className="top-bar-right">
 					<form onSubmit={this.onSearch}>
 					<ul className="menu">
-						<li><input type="search" ref="search" placeholder="Search weather by city" /></li>
+						<li><input type="search" placeholder="Search weather by city" ref="search"/></li>
 						<li><input type="submit" className="button" value="Get Weather" /></li>
 					</ul>
 					</form>
@@ -38,6 +38,4 @@ var Nav = React.createClass({
 
 });
 	
-
 module.exports = Nav;
-
